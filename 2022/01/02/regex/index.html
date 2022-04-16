@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/project/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/project/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/project/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/project/xiaobao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/project/xiaobao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/project/xiaobao.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/project/xiaobao.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="正则,regex," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="正则表达式1. 描述字符根据正则表达式语法规则，大部分字符仅能够描述自身，这些字符被称为普通字符，如所有的字母、数字等。 元字符就是拥有特动功能的特殊字符，大部分需要加反斜杠进行标识，以便于普通字符进行区别，而少数元字符，需要加反斜杠，以便转译为普通字符使用。JavaScript 正则表达式支持的元字符如表所示。    元字符 描述    . 查找单个字符，除了换行和行结束符   \w 查找单词字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript正则表达式">
+<meta property="og:url" content="https://username.github.io/project/2022/01/02/regex/index.html">
+<meta property="og:site_name" content="我的世界">
+<meta property="og:description" content="正则表达式1. 描述字符根据正则表达式语法规则，大部分字符仅能够描述自身，这些字符被称为普通字符，如所有的字母、数字等。 元字符就是拥有特动功能的特殊字符，大部分需要加反斜杠进行标识，以便于普通字符进行区别，而少数元字符，需要加反斜杠，以便转译为普通字符使用。JavaScript 正则表达式支持的元字符如表所示。    元字符 描述    . 查找单个字符，除了换行和行结束符   \w 查找单词字">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-01-02T03:41:23.000Z">
+<meta property="article:modified_time" content="2022-04-16T14:01:09.375Z">
+<meta property="article:author" content="GaoX">
+<meta property="article:tag" content="正则">
+<meta property="article:tag" content="regex">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://username.github.io/project/2022/01/02/regex/"/>
+
+
+
+
+
+  <title>Javascript正则表达式 | 我的世界</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/project/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/project/home/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/project/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/project/tags%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/project/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/project/archives%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/project/project/2022/01/02/regex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/project/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-02T11:41:23+08:00">
+                2022-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/project/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="1-描述字符"><a href="#1-描述字符" class="headerlink" title="1. 描述字符"></a>1. 描述字符</h2><p>根据正则表达式语法规则，大部分字符仅能够描述自身，这些字符被称为<code>普通字符</code>，如所有的字母、数字等。</p>
+<p><code>元字符</code>就是拥有特动功能的特殊字符，大部分需要加<code>反斜杠</code>进行标识，以便于普通字符进行区别，而少数元字符，需要加反斜杠，以便转译为普通字符使用。JavaScript 正则表达式支持的元字符如表所示。</p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.</td>
+<td>查找单个字符，除了换行和行结束符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>查找单词字符</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>查找非单词字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>查找数字</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>查找非数字字符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>查找空白字符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>查找非空白字符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词边界</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>查找 NUL字符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>查找换行符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>查找换页符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>查找回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>查找制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>查找垂直制表符</td>
+</tr>
+<tr>
+<td>\xxx</td>
+<td>查找以八进制数 xxxx 规定的字符</td>
+</tr>
+<tr>
+<td>\xdd</td>
+<td>查找以十六进制数 dd 规定的字符</td>
+</tr>
+<tr>
+<td>\uxxxx</td>
+<td>查找以十六进制 xxxx规定的 Unicode 字符</td>
+</tr>
+</tbody></table>
+<span id="more"></span> 
+<h2 id="2-转义，特殊字符"><a href="#2-转义，特殊字符" class="headerlink" title="2. 转义，特殊字符"></a>2. 转义，特殊字符</h2><p>记一下几个需要转义的正则表达式字符</p>
+<table>
+<thead>
+<tr>
+<th align="left">字符</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$</td>
+<td align="left">匹配输入字符串的结尾位置</td>
+</tr>
+<tr>
+<td align="left">( )</td>
+<td align="left">标记一个子表达式的开始和结束位置</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="left">匹配前面的子表达式零次或多次</td>
+</tr>
+<tr>
+<td align="left">+</td>
+<td align="left">匹配前面的子表达式一次或多次</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">匹配除换行符 \n之外的任何单字符</td>
+</tr>
+<tr>
+<td align="left">[ ]</td>
+<td align="left">标记一个中括号表达式的开始</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">匹配前面的子表达式零次或一次，或指明一个非贪婪限定符</td>
+</tr>
+<tr>
+<td align="left">\</td>
+<td align="left">将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left">匹配输入字符串的开始位置，在【^】表示取反</td>
+</tr>
+<tr>
+<td align="left">{ }</td>
+<td align="left">标记限定符表达式的开始</td>
+</tr>
+<tr>
+<td align="left">|</td>
+<td align="left">指明两项之间的一个选择</td>
+</tr>
+</tbody></table>
+<h2 id="3-描述字符范围"><a href="#3-描述字符范围" class="headerlink" title="3. 描述字符范围"></a>3. 描述字符范围</h2><p>在正则表达式语法中，放括号表示字符范围。在方括号中可以包含多个字符，表示匹配其中任意一个字符。如果多个字符的编码顺序是连续的，可以仅指定开头和结尾字符，省略中间字符，仅使用连字符<code>~</code>表示。如果在方括号内添加脱字符<code>^</code>前缀，还可以表示范围之外的字符。例如：</p>
+<ul>
+<li>[abc]：查找方括号内任意一个字符。</li>
+<li>[^abc]：查找不在方括号内的字符。</li>
+<li>[0-9]：查找从 0 至 9 范围内的数字，即查找数字。</li>
+<li>[a-z]：查找从小写 a 到小写 z 范围内的字符，即查找小写字母。</li>
+<li>[A-Z]：查找从大写 A 到大写 Z 范围内的字符，即查找大写字母。</li>
+<li>[A-z]：查找从大写 A 到小写 z 范围内的字符，即所有大小写的字母。</li>
+</ul>
+<h2 id="4-重复匹配"><a href="#4-重复匹配" class="headerlink" title="4. 重复匹配"></a>4. 重复匹配</h2><p>在正则表达式语法中，定义了一组重复类量词，如表所示。它们定义了重复匹配字符的确数或约数。</p>
+<table>
+<thead>
+<tr>
+<th>量词</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n+</td>
+<td>匹配任何包含至少一个 n 的字符串</td>
+</tr>
+<tr>
+<td>n*</td>
+<td>匹配任何包含零个或多个 n 的字符串</td>
+</tr>
+<tr>
+<td>n?</td>
+<td>匹配任何包含零个或一个 n 的字符串</td>
+</tr>
+<tr>
+<td>n{x}</td>
+<td>匹配包含 x 个 n 的序列的字符串</td>
+</tr>
+<tr>
+<td>n{x,y}</td>
+<td>匹配包含最少 x 个、最多 y 个 n 的序列的字符串</td>
+</tr>
+<tr>
+<td>n{x,}</td>
+<td>匹配包含至少 x 个 n 的序列的字符串</td>
+</tr>
+</tbody></table>
+<h2 id="5-惰性匹配"><a href="#5-惰性匹配" class="headerlink" title="5. 惰性匹配"></a>5. 惰性匹配</h2><p>重复类量词都具有贪婪性，在条件允许的前提下，会匹配尽可能多的字符。</p>
+<ul>
+<li>?、{n} 和 {n,m} 重复类具有弱贪婪性，表现为贪婪的有限性。</li>
+<li>*、+ 和 {n,} 重复类具有强贪婪性，表现为贪婪的无限性。</li>
+</ul>
+<p>针对 6 种重复类惰性匹配的简单描述如下：</p>
+<ul>
+<li>{n,m}?：尽量匹配 n 次，但是为了满足限定条件也可能最多重复 m 次。</li>
+<li>{n}?：尽量匹配 n 次。</li>
+<li>{n,}?：尽量匹配 n 次，但是为了满足限定条件也可能匹配任意次。</li>
+<li>??：尽量匹配，但是为了满足限定条件也可能最多匹配 1 次，相当于 {0,1}?。</li>
+<li>+?：尽量匹配 1 次，但是为了满足限定条件也可能匹配任意次，相当于 {1,}?。</li>
+<li>*? ：尽量不匹配，但是为了满足限定条件也可能匹配任意次，相当于 {0,}?。</li>
+</ul>
+<h2 id="6-前向查找"><a href="#6-前向查找" class="headerlink" title="6. 前向查找"></a>6. 前向查找</h2><h3 id="正向查找"><a href="#正向查找" class="headerlink" title="正向查找"></a>正向查找</h3><p>指定匹配模式后面的字符必须被匹配，但又不返回这些字符，（找到这里的位置）。语法格式如下：</p>
+<p>匹配模式 (?= 匹配条件)</p>
+<p>声明包含在小括号内，它不是分组，因此作为子表达式。</p>
+<p>下面代码定义一个正前向生命的匹配模式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&quot;one:1;two=2&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> r = <span class="regexp">/\w*(?==)/</span>;  <span class="comment">//使用正前向声明，指定执行匹配必须满足的条件</span></span><br><span class="line"><span class="keyword">var</span> a = s.<span class="title function_">match</span>(r);  <span class="comment">//返回数组[&quot;two&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面示例中，通过<code>?==</code>锚定条件，指定只有在 \w* 所能够匹配的字符后面跟随一个等号字符，才能够执行 \w* 匹配。所以，最后匹配的字符串“two”，而不是字符串“one”。</p>
+<h3 id="前向负查找"><a href="#前向负查找" class="headerlink" title="前向负查找"></a>前向负查找</h3><p>与正向声明匹配相反，指定接下来的字符都不必被匹配。语法格式如下：</p>
+<p>匹配模式(?! 匹配条件)</p>
+<p>下面代码定义一个反前向生命的匹配模式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&quot;one:1;two=2&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> r = <span class="regexp">/\w*(?!=)/</span>;  <span class="comment">//使用正前向声明，指定执行匹配不必满足的条件</span></span><br><span class="line"><span class="keyword">var</span> a = s.<span class="title function_">match</span>(r);  <span class="comment">//返回数组[&quot;one&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面示例中，通过<code>?!=</code>锚定条件，指定只有在“\w<em>”所能够匹配的字符后面不跟随一个等号字符，才能够执行 \w</em>匹配。所以，最后匹配的是字符串“one”，而不是字符串“two”。</p>
+<h3 id="后项查找"><a href="#后项查找" class="headerlink" title="后项查找"></a>后项查找</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&quot;&lt;h1&gt;title&lt;/h1&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> r = <span class="regexp">/(?&lt;=&lt;h1&gt;).*/</span>;   </span><br><span class="line"><span class="keyword">var</span> a = s.<span class="title function_">match</span>(r);      <span class="comment">//返回数组[&#x27;title&lt;/h1&gt;&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="后向负查找"><a href="#后向负查找" class="headerlink" title="后向负查找"></a>后向负查找</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&quot;&lt;h1&gt;title&lt;/h1&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> r = <span class="regexp">/(?&lt;!&lt;h1&gt;)\w*/</span>;   </span><br><span class="line"><span class="keyword">var</span> a = s.<span class="title function_">match</span>(r);     <span class="comment">//返回[]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>回溯查找</th>
+<th>正则</th>
+<th>记忆方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引用</td>
+<td>\0,\1,\2 和 $0, $1, $2</td>
+<td>转义+数字</td>
+</tr>
+<tr>
+<td>非捕获组</td>
+<td>(?:)</td>
+<td>引用表达式(()), 本身不被消费(?),引用(:)</td>
+</tr>
+<tr>
+<td>前向查找</td>
+<td>(?=)</td>
+<td>引用子表达式(())，本身不被消费(?), 正向的查找(=)</td>
+</tr>
+<tr>
+<td>前向负查找</td>
+<td>(?!)</td>
+<td>引用子表达式(())，本身不被消费(?), 负向的查找(!)</td>
+</tr>
+<tr>
+<td>后向查找</td>
+<td>(?&lt;=)</td>
+<td>引用子表达式(())，本身不被消费(?), 后向的(&lt;，开口往后)，正的查找(=)</td>
+</tr>
+<tr>
+<td>后向负查找</td>
+<td>(?&lt;!)</td>
+<td>引用子表达式(())，本身不被消费(?), 后向的(&lt;，开口往后)，负的查找(!)</td>
+</tr>
+</tbody></table>
+<h1 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.版本号x.y.z</span></span><br><span class="line"><span class="keyword">let</span> versionRegex = <span class="regexp">/^(?:\d+\.)&#123;2&#125;\d+$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.大于等于0, 小于等于150, 支持小数位出现5</span></span><br><span class="line"><span class="keyword">let</span> pointRegex = <span class="regexp">/^(?:[1-9]?\d|1[0-4]\d)(?:.5)?$|150/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.匹配所有页面内元素的id名称</span></span><br><span class="line"><span class="keyword">const</span> idRegexp = <span class="regexp">/id=&quot;([^&quot;]+)&quot;/g</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span></span><br><span class="line">  .<span class="title function_">match</span>(idRegexp)</span><br><span class="line">  .<span class="title function_">map</span>(<span class="function">(<span class="params">idStr</span>) =&gt;</span> idStr.<span class="title function_">replace</span>(idRegexp, <span class="string">&#x27;$1&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. windows下的文件夹和文件路径</span></span><br><span class="line"><span class="keyword">const</span> windowsPathRegex = <span class="regexp">/^[a-zA-Z]:\\(?:[^\\:*&lt;&gt;|&quot;?\r\n/]+\\?)*(?:(?:[^\\:*&lt;&gt;|&quot;?\r\n/]+)\.\w+)?$/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5.手机号</span></span><br><span class="line"><span class="keyword">const</span> mobileRegex = <span class="regexp">/^(?:\+?86)?1(?:3\d&#123;3&#125;|5[^4\D]\d&#123;2&#125;|8\d&#123;3&#125;|7(?:[235-8]\d&#123;2&#125;|4(?:0\d|1[0-2]|9\d))|9[0-35-9]\d&#123;2&#125;|66\d&#123;2&#125;)\d&#123;6&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 6.是否中文</span></span><br><span class="line"><span class="keyword">const</span> checkChineseRegex = <span class="regexp">/^[\u4E00-\u9FA5]+$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 7.url是否是http或者https协议头</span></span><br><span class="line"><span class="keyword">const</span> checkProtocolRegex = <span class="regexp">/^https?:/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 8.16进制颜色</span></span><br><span class="line"><span class="keyword">const</span> matchColorRegex = <span class="regexp">/#(?:[\da-fA-F]&#123;6&#125;|[\da-fA-F]&#123;3&#125;)/g</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 9.时间日期格式</span></span><br><span class="line"><span class="keyword">const</span> checkDateRegex = <span class="regexp">/^\d&#123;4&#125;(-\.\/)(?:0[1-9]|1[02])\1(?:0[1-9]|[12]\d|3[01])$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 10.24小时制时间</span></span><br><span class="line"><span class="keyword">const</span> check24TimeRegex = <span class="regexp">/^(?:(?:0?|1)\d|2[0-3]):(?:0?|[1-5])\d$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 11.将字符串驼峰化</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">camelCase</span> = (<span class="params">string</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> camelCaseRegex = <span class="regexp">/[-_\s]+(.)?/g</span></span><br><span class="line">  <span class="keyword">return</span> string.<span class="title function_">replace</span>(camelCaseRegex, <span class="function">(<span class="params">match, char</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> char ? char.<span class="title function_">toUpperCase</span>() : <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 12. 字符串首字母大写，剩下的小写</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">capitalize</span> = (<span class="params">string</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> capitalizeRegex = <span class="regexp">/(?:^|\s+)\w/g</span></span><br><span class="line">  <span class="keyword">return</span> string.<span class="title function_">toLowerCase</span>().<span class="title function_">replace</span>(capitalizeRegex, <span class="function">(<span class="params">match</span>) =&gt;</span> match.<span class="title function_">toUpperCase</span>())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 13.HTML转义</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">escape</span> = (<span class="params">string</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> escapeMaps = &#123;</span><br><span class="line">  <span class="string">&#x27;&amp;&#x27;</span>:<span class="string">&#x27;amp&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;&lt;&#x27;</span>:<span class="string">&#x27;lt&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;&gt;&#x27;</span>:<span class="string">&#x27;gt&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;&quot;&#x27;</span>:<span class="string">&#x27;quot&#x27;</span>,</span><br><span class="line">  <span class="string">&quot;&#x27;&quot;</span>:<span class="string">&#x27;#39&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">const</span> escapeRegexp = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">`[<span class="subst">$&#123;<span class="built_in">Object</span>.keys(escapeMaps).join(<span class="string">&#x27;&#x27;</span>)&#125;</span>]`</span>, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">	<span class="keyword">return</span> string.<span class="title function_">replace</span>(escapeRegexp, <span class="function">(<span class="params">match</span>) =&gt;</span> <span class="string">`&amp;<span class="subst">$&#123;escapeMaps[match]&#125;</span>;`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 14.HTML反转义</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">unescape</span> = (<span class="params">string</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> unescapeMaps = &#123;</span><br><span class="line">    <span class="string">&#x27;amp&#x27;</span>: <span class="string">&#x27;&amp;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;lt&#x27;</span>: <span class="string">&#x27;&lt;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;gt&#x27;</span>: <span class="string">&#x27;&gt;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;quot&#x27;</span>: <span class="string">&#x27;&quot;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;#39&#x27;</span>: <span class="string">&quot;&#x27;&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> unescapeRegexp = <span class="regexp">/&amp;([^;]+);/g</span></span><br><span class="line">  <span class="keyword">return</span> string.<span class="title function_">replace</span>(unescapeRegexp, <span class="function">(<span class="params">match, unescapeKey</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> unescapeMaps[ unescapeKey ] || match</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 15.数字价格千分位分割</span></span><br><span class="line"><span class="keyword">const</span> thousandRegex = <span class="regexp">/(?!^)(?=(\d&#123;3&#125;)+$)/g</span></span><br><span class="line"><span class="string">&#x27;123456789&#x27;</span>.<span class="title function_">replace</span>(thousandRegex, <span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 16.手机号3-4-4分割</span></span><br><span class="line"><span class="keyword">let</span> mobileReg = <span class="regexp">/(?=(\d&#123;4&#125;)+$)/g</span> </span><br><span class="line"><span class="string">&#x27;18379836654&#x27;</span>.<span class="title function_">replace</span>(mobileReg, <span class="string">&quot;-&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 17.手机号3-4-4分割扩展</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">formatMobile</span> = (<span class="params">mobile</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">String</span>(mobile).<span class="title function_">slice</span>(<span class="number">0</span>,<span class="number">11</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/(?&lt;=\d&#123;3&#125;)\d+/</span>, <span class="function">(<span class="params">$<span class="number">0</span></span>) =&gt;</span> <span class="string">&#x27;-&#x27;</span> + $<span class="number">0</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/(?&lt;=[\d-]&#123;8&#125;)\d&#123;1,4&#125;/</span>, <span class="function">(<span class="params">$<span class="number">0</span></span>) =&gt;</span> <span class="string">&#x27;-&#x27;</span> + $<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 18.验证密码的合法性,密码长度是6-12位，由数字、小写字母和大写字母组成，但必须至少包括2种字符</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/((?=.*\d)((?=.*[a-z])|(?=.*[A-Z])))|(?=.*[a-z])(?=.*[A-Z])^[a-zA-Z\d]&#123;6,12&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 19.实现一个trim函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">trim</span> = (<span class="params">str</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">replace</span>(<span class="regexp">/^\s*|\s*$/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 20.去掉所有的空格</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">reg</span> = (<span class="params">str</span>) =&gt; &#123;</span><br><span class="line"> <span class="keyword">return</span> str.<span class="title function_">replace</span>(<span class="regexp">/\s/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/gaox-dev/Pics@main/2022/04/wechatpayUmdUjA.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/gaox-dev/Pics@main/2022/04/alipayGrvnkv.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/project/tags/%E6%AD%A3%E5%88%99/" rel="tag"># 正则</a>
+          
+            <a href="/project/tags/regex/" rel="tag"># regex</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/project/2021/04/17/flutter2/" rel="next" title="Flutter常用功能">
+                <i class="fa fa-chevron-left"></i> Flutter常用功能
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/project/archives%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%8F%E8%BF%B0%E5%AD%97%E7%AC%A6"><span class="nav-number">1.1.</span> <span class="nav-text">1. 描述字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BD%AC%E4%B9%89%EF%BC%8C%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">2. 转义，特殊字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8F%8F%E8%BF%B0%E5%AD%97%E7%AC%A6%E8%8C%83%E5%9B%B4"><span class="nav-number">1.3.</span> <span class="nav-text">3. 描述字符范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%87%8D%E5%A4%8D%E5%8C%B9%E9%85%8D"><span class="nav-number">1.4.</span> <span class="nav-text">4. 重复匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%83%B0%E6%80%A7%E5%8C%B9%E9%85%8D"><span class="nav-number">1.5.</span> <span class="nav-text">5. 惰性匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%89%8D%E5%90%91%E6%9F%A5%E6%89%BE"><span class="nav-number">1.6.</span> <span class="nav-text">6. 前向查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E6%9F%A5%E6%89%BE"><span class="nav-number">1.6.1.</span> <span class="nav-text">正向查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E8%B4%9F%E6%9F%A5%E6%89%BE"><span class="nav-number">1.6.2.</span> <span class="nav-text">前向负查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E9%A1%B9%E6%9F%A5%E6%89%BE"><span class="nav-number">1.6.3.</span> <span class="nav-text">后项查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%90%91%E8%B4%9F%E6%9F%A5%E6%89%BE"><span class="nav-number">1.6.4.</span> <span class="nav-text">后向负查找</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">常用正则表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GaoX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/project/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/project/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/project/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/project/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/project/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/project/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/project/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/project/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

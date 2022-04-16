@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/project/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/project/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/project/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/project/xiaobao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/project/xiaobao.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/project/xiaobao.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/project/xiaobao.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="flutter," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Flutter配置常见错误1.1 Could not determine the dependencies of task :app:compileDebugJavaWithJavac123456789Could not determine the dependencies of task &amp;#x27;:app:compileDebugJavaWithJavac&amp;#x27;.&gt; Could">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter配置常见错误">
+<meta property="og:url" content="https://username.github.io/project/2021/04/15/Flutter/index.html">
+<meta property="og:site_name" content="我的世界">
+<meta property="og:description" content="Flutter配置常见错误1.1 Could not determine the dependencies of task :app:compileDebugJavaWithJavac123456789Could not determine the dependencies of task &amp;#x27;:app:compileDebugJavaWithJavac&amp;#x27;.&gt; Could">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/xUMdHlnFiA79OIm.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/29/nO9jRSbcmdX3Hv4.png">
+<meta property="og:image" content="https://i.loli.net/2021/05/20/gBaN28K1DXtvVdb.png">
+<meta property="article:published_time" content="2021-04-15T09:13:47.000Z">
+<meta property="article:modified_time" content="2022-04-16T14:00:14.771Z">
+<meta property="article:author" content="GaoX">
+<meta property="article:tag" content="flutter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/27/xUMdHlnFiA79OIm.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://username.github.io/project/2021/04/15/Flutter/"/>
+
+
+
+
+
+  <title>Flutter配置常见错误 | 我的世界</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/project/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/project/home/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/project/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-about"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/project/tags%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/project/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/project/archives%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://username.github.io/project/project/2021/04/15/Flutter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/project/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Flutter配置常见错误</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-15T17:13:47+08:00">
+                2021-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/project/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Flutter配置常见错误"><a href="#Flutter配置常见错误" class="headerlink" title="Flutter配置常见错误"></a>Flutter配置常见错误</h1><h2 id="1-1-Could-not-determine-the-dependencies-of-task-app-compileDebugJavaWithJavac"><a href="#1-1-Could-not-determine-the-dependencies-of-task-app-compileDebugJavaWithJavac" class="headerlink" title="1.1 Could not determine the dependencies of task :app:compileDebugJavaWithJavac"></a>1.1 Could not determine the dependencies of task :app:compileDebugJavaWithJavac</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Could not determine the dependencies of task <span class="string">&#x27;:app:compileDebugJavaWithJavac&#x27;</span>.</span><br><span class="line">&gt; Could not resolve all task dependencies <span class="keyword">for</span> configuration <span class="string">&#x27;:app:debugCompileClasspath&#x27;</span>.</span><br><span class="line">   &gt; Could not find io.flutter:x86_64_debug:<span class="number">1.0</span><span class="number">.0</span><span class="number">-91</span>c9fc8fe011352879e3bb6660966eafc0847233.</span><br><span class="line">     Required by:</span><br><span class="line">         project :app</span><br><span class="line">   &gt; Could not find io.flutter:x86_debug:<span class="number">1.0</span><span class="number">.0</span><span class="number">-91</span>c9fc8fe011352879e3bb6660966eafc0847233.</span><br><span class="line">     Required by:</span><br><span class="line">         project :app</span><br><span class="line">   &gt; Could not find io.flutter:flutter_embedding_debug:<span class="number">1.0</span><span class="number">.0</span><span class="number">-91</span>c9fc8fe011352879e3bb6660966eafc0847233.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mr_hmgo/article/details/106674679">https://blog.csdn.net/mr_hmgo/article/details/106674679</a></p>
+</blockquote>
+<span id="more"></span> 
+<h2 id="1-2-Mac-Flutter-doctor-✗-Unable-to-locate-Android-SDK"><a href="#1-2-Mac-Flutter-doctor-✗-Unable-to-locate-Android-SDK" class="headerlink" title="1.2 Mac, Flutter doctor, ✗ Unable to locate Android SDK."></a>1.2 Mac, Flutter doctor, ✗ Unable to locate Android SDK.</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//简单的解决办法:</span><br><span class="line">flutter config --android-sdk <span class="variable">$HOME</span>/Library/Android/sdk</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-3-无法Pod安装时"><a href="#1-3-无法Pod安装时" class="headerlink" title="1.3 无法Pod安装时"></a>1.3 无法Pod安装时</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm ios/Podfile.lock</span><br><span class="line">flutter build ios </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-4-Exception：“failed-to-set-registerPlugins”"><a href="#1-4-Exception：“failed-to-set-registerPlugins”" class="headerlink" title="1.4 Exception：“failed to set registerPlugins”"></a>1.4 Exception：“failed to set registerPlugins”</h2><p>打开 ios目录下的AppDelegate.swift文件</p>
+<p>添加</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> flutter_downloader</span><br></pre></td></tr></table></figure>
+
+<p>Bool 回调添加</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">FlutterDownloaderPlugin</span>.setPluginRegistrantCallback(registerPlugins)</span><br></pre></td></tr></table></figure>
+
+<p>尾部添加</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">registerPlugins</span>(<span class="params">registry</span>: <span class="type">FlutterPluginRegistry</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="operator">!</span>registry.hasPlugin(<span class="string">&quot;FlutterDownloaderPlugin&quot;</span>)) &#123;</span><br><span class="line">       <span class="type">FlutterDownloaderPlugin</span>.register(with: registry.registrar(forPlugin: <span class="string">&quot;FlutterDownloaderPlugin&quot;</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main.dart完整代码</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> Flutter</span><br><span class="line"><span class="keyword">import</span> flutter_downloader</span><br><span class="line"></span><br><span class="line"><span class="keyword">@UIApplicationMain</span></span><br><span class="line"><span class="keyword">@objc</span> <span class="keyword">class</span> <span class="title class_">AppDelegate</span>: <span class="title class_">FlutterAppDelegate</span> &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">application</span>(</span><br><span class="line">    <span class="keyword">_</span> <span class="params">application</span>: <span class="type">UIApplication</span>,</span><br><span class="line">    <span class="params">didFinishLaunchingWithOptions</span> <span class="params">launchOptions</span>: [<span class="type">UIApplication</span>.<span class="params">LaunchOptionsKey</span>: <span class="keyword">Any</span>]<span class="operator">?</span></span><br><span class="line">  ) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="type">GeneratedPluginRegistrant</span>.register(with: <span class="keyword">self</span>)</span><br><span class="line">    <span class="type">FlutterDownloaderPlugin</span>.setPluginRegistrantCallback(registerPlugins)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.application(application, didFinishLaunchingWithOptions: launchOptions)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">func</span> <span class="title function_">registerPlugins</span>(<span class="params">registry</span>: <span class="type">FlutterPluginRegistry</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="operator">!</span>registry.hasPlugin(<span class="string">&quot;FlutterDownloaderPlugin&quot;</span>)) &#123;</span><br><span class="line">       <span class="type">FlutterDownloaderPlugin</span>.register(with: registry.registrar(forPlugin: <span class="string">&quot;FlutterDownloaderPlugin&quot;</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-5-XCode-archive-error-‘No-such-module-flutter-downloader’-when-using-AppDelegate-swift"><a href="#1-5-XCode-archive-error-‘No-such-module-flutter-downloader’-when-using-AppDelegate-swift" class="headerlink" title="1.5 XCode archive error ‘No such module flutter_downloader’ when using AppDelegate.swift"></a>1.5 XCode archive error ‘No such module flutter_downloader’ when using AppDelegate.swift</h2><p>None of the above solutions worked for me so this is how I solved mine:</p>
+<ol>
+<li>Run <code>flutter clean</code></li>
+<li>Open the project folder navigate to ios directory and delete the ‘Pods’ folder</li>
+<li>Run <code>flutter pub get</code></li>
+<li>Open terminal and navigate to ios directory in your project folder and run <code>pod install</code></li>
+<li>When done, open ‘Runner.xcworkspace’</li>
+<li>In Xcode, clean the build folder by going to Product &gt; Clean Build Folder</li>
+<li>Build the project (Product &gt; Build) and everything should work fine.</li>
+</ol>
+<h2 id="1-6-Encountered-error-while-building-for-device"><a href="#1-6-Encountered-error-while-building-for-device" class="headerlink" title="1.6 Encountered error while building for device."></a>1.6 Encountered error while building for device.</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warning: The iOS deployment target <span class="string">&#x27;IPHONEOS_DEPLOYMENT_TARGET&#x27;</span> is <span class="built_in">set</span> to 8.0, but the range of</span><br><span class="line">    supported deployment target versions is 9.0 to 14.0.99. (<span class="keyword">in</span> target <span class="string">&#x27;JPush&#x27;</span> from project <span class="string">&#x27;Pods&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>先用Xcode编译运行一遍。修改target deployment version</p>
+</li>
+<li><p>Xcode编译出现错误，需要用Xcode清除错后才行。</p>
+</li>
+</ul>
+<h2 id="1-7-“Waiting-for-another-flutter-command-to-…”"><a href="#1-7-“Waiting-for-another-flutter-command-to-…”" class="headerlink" title="1.7 “Waiting for another flutter command to …”"></a>1.7 “Waiting for another flutter command to …”</h2><p>执行 <code>Flutter</code> 包管理相关命令时有可能遇到 <code>Waiting for another flutter command to release the startup lock...</code> 这样的错误，可尝试杀死所有的 <code>dart</code> 进程解决：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Linux</span><br><span class="line">killall -9 dart</span><br><span class="line"></span><br><span class="line">// Windows</span><br><span class="line">taskkill /F /IM dart.exe</span><br><span class="line"></span><br><span class="line">// Mac</span><br><span class="line"><span class="built_in">rm</span> ~/flutter/bin/cache/lockfile</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-8-Command-PhaseScriptExecution-failed-with-a-nonzero-exit-code"><a href="#1-8-Command-PhaseScriptExecution-failed-with-a-nonzero-exit-code" class="headerlink" title="1.8 Command PhaseScriptExecution failed with a nonzero exit code"></a>1.8 Command PhaseScriptExecution failed with a nonzero exit code</h2><p> <strong>Xcode报错</strong>：“Command PhaseScriptExecution failed with a nonzero exit code”</p>
+<p><strong>Android Studio报错</strong>：“Could not build the precompiled application for the device .Error launching application on xx.”</p>
+<p>可以模拟器跑，无法在真机运行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> ~/flutter/bin/cache/lockfile</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-9-Flutter-plugin-not-installed-and-Dart-plugin-not-installed-errors-69514"><a href="#1-9-Flutter-plugin-not-installed-and-Dart-plugin-not-installed-errors-69514" class="headerlink" title="1.9 Flutter plugin not installed and Dart plugin not installed errors #69514"></a>1.9 Flutter plugin not installed and Dart plugin not installed errors #69514</h2><p>Plugin folder has changed in 4.1 version;<br>From : ~/Library/Application\ Support/AndroidStudio4.1<br>To: ~/Library/Application\ Support/Google/AndroidStudio4.1/plugins</p>
+<p>Temporary fix as suggested in the above answer;</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s ~/Library/Application\ Support/Google/AndroidStudio4.1/plugins ~/Library/Application\ Support/AndroidStudio4.1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-10-打包apk，谷歌服务连接失败"><a href="#1-10-打包apk，谷歌服务连接失败" class="headerlink" title="1.10 打包apk，谷歌服务连接失败"></a>1.10 打包apk，谷歌服务连接失败</h2><p><img src="https://i.loli.net/2021/04/27/xUMdHlnFiA79OIm.png" alt="iShot2021-04-27 15.26.00.png"></p>
+<p>1、关闭gradle代理</p>
+<p>2、修改项目<code>/android/build.gradle</code></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">       <span class="comment">// google()</span></span><br><span class="line">        <span class="comment">// jcenter()</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/google&#x27; &#125;</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/jcenter&#x27; &#125;</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/public&#x27; &#125;</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/gradle-plugin&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="symbol">&#x27;com</span>.android.tools.build:gradle:<span class="number">3.2</span>.<span class="number">1</span>&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        <span class="comment">// google()</span></span><br><span class="line">        <span class="comment">// jcenter()</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/google&#x27; &#125;</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/jcenter&#x27; &#125;</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/public&#x27; &#125;</span></span><br><span class="line">        maven &#123; url <span class="symbol">&#x27;https</span>:<span class="comment">//maven.aliyun.com/repository/gradle-plugin&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、打开你flutter SDK目下<code>/Users/gaoxiong/flutter/packages/flutter_tools/gradle/flutter.gradle</code></p>
+<p>与第二步一样，编辑buildscript下的repositories属性。</p>
+<p>4、打开<code>/android/gradle/wrapper/gradle-wrapper.properties</code></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-6.9-rc-1-all.zip</span></span><br><span class="line"><span class="comment">//修改路径为本地路径</span></span><br><span class="line">distributionUrl=file\:<span class="comment">///<span class="language-markdown">Users/gaoxiong/gradle/gradle-6.9-rc-1-all.zip</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-11-CocoaPods-did-not-set-the-base-configuration"><a href="#1-11-CocoaPods-did-not-set-the-base-configuration" class="headerlink" title="1.11  CocoaPods did not set the base configuration"></a>1.11  CocoaPods did not set the base configuration</h2><p> CocoaPods did not set the base configuration of your project because your project already has a custom config set. In order for CocoaPods integration to work at all, please either set the base configurations of the target <code>Runner</code> to <code>Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig</code> or include the <code>Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig</code> in your build configuration (<code>Flutter/Release.xcconfig</code>).</p>
+<p><img src="https://i.loli.net/2021/04/29/nO9jRSbcmdX3Hv4.png" alt="iShot2021-04-29 17.08.54.png"></p>
+<h2 id="1-12-PluginApplicationException-Failed-to-apply-plugin-id-‘com-android-internal-version-check‘"><a href="#1-12-PluginApplicationException-Failed-to-apply-plugin-id-‘com-android-internal-version-check‘" class="headerlink" title="1.12 PluginApplicationException: Failed to apply plugin [id ‘com.android.internal.version-check‘]"></a>1.12 PluginApplicationException: Failed to apply plugin [id ‘com.android.internal.version-check‘]</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在gradle.properties文件中添加</span></span><br><span class="line">android.overridePathCheck=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-13-Execution-failed-for-task’-app-compileDebugKotlin’"><a href="#1-13-Execution-failed-for-task’-app-compileDebugKotlin’" class="headerlink" title="1.13 Execution failed for task’:app:compileDebugKotlin’."></a>1.13 Execution failed for task’:app:compileDebugKotlin’.</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle clean build</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-14-修改bundle-ID-后，需要同步修改文件夹"><a href="#1-14-修改bundle-ID-后，需要同步修改文件夹" class="headerlink" title="1.14 修改bundle ID 后，需要同步修改文件夹"></a>1.14 修改bundle ID 后，需要同步修改文件夹</h2><img src="https://i.loli.net/2021/05/20/gBaN28K1DXtvVdb.png" style="zoom:50%;" />
+
+
+
+<h2 id="1-15-安卓webview-flutter支持缩放"><a href="#1-15-安卓webview-flutter支持缩放" class="headerlink" title="1.15 安卓webview_flutter支持缩放"></a>1.15 安卓webview_flutter支持缩放</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webView  </span></span><br><span class="line"><span class="keyword">void</span> initState() &#123;</span><br><span class="line">    <span class="keyword">super</span>.initState();</span><br><span class="line">  <span class="comment">//重要</span></span><br><span class="line">    <span class="keyword">if</span> (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//FlutterWebView.java </span></span><br><span class="line">    webView.getSettings().setUseWideViewPort(<span class="keyword">true</span>);</span><br><span class="line">    webView.getSettings().setSupportZoom(<span class="keyword">true</span>);</span><br><span class="line">    webView.getSettings().setBuiltInZoomControls(<span class="keyword">true</span>);</span><br><span class="line">    webView.getSettings().setLoadWithOverviewMode(<span class="keyword">true</span>);</span><br><span class="line">    webView.getSettings().setDisplayZoomControls(<span class="keyword">true</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-16-NoSuchMethodError-The-getter-‘length’-was-called-on-null"><a href="#1-16-NoSuchMethodError-The-getter-‘length’-was-called-on-null" class="headerlink" title="1.16 NoSuchMethodError: The getter ‘length’ was called on null."></a>1.16 NoSuchMethodError: The getter ‘length’ was called on null.</h2><p><strong>json对象没有传递model所有的属性字段。</strong></p>
+<h2 id="1-17-No-such-module-‘HandyJSON’"><a href="#1-17-No-such-module-‘HandyJSON’" class="headerlink" title="1.17 No such module ‘HandyJSON’"></a>1.17 No such module ‘HandyJSON’</h2><blockquote>
+<p>Xcode模拟器报错，真机不报错。</p>
+<p>不知道具体原因。</p>
+</blockquote>
+<h2 id="1-18-flutter-localizations-from-sdk-depends-on-intl-0-17-0-and-fstore-depends-on-intl-0-16-1-flutter-localizations-from-sdk-is-forbidden"><a href="#1-18-flutter-localizations-from-sdk-depends-on-intl-0-17-0-and-fstore-depends-on-intl-0-16-1-flutter-localizations-from-sdk-is-forbidden" class="headerlink" title="1.18 flutter_localizations from sdk depends on intl 0.17.0 and fstore depends on intl ^0.16.1, flutter_localizations from sdk is forbidden"></a>1.18 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/66476379/flutter-localizations-from-sdk-depends-on-intl-0-17-0-and-fstore-depends-on-intl">flutter_localizations from sdk depends on intl 0.17.0 and fstore depends on intl ^0.16.1, flutter_localizations from sdk is forbidden</a></h2><p>This is happening because flutter_localizations need <code>intl: ^0.16.1</code> while the last version needed <code>intl: ^0.17.0-nullsafety.2</code></p>
+<p>By overriding the existing dependency we can resolve this issue</p>
+<p>Adding this to <code>pubspec.yaml</code> solved it:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dependency_overrides:</span><br><span class="line">   intl: ^<span class="number">0.17</span><span class="number">.0</span>-nullsafety<span class="number">.2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-19-Could-not-find-an-option-named-“devtools-server-address”"><a href="#1-19-Could-not-find-an-option-named-“devtools-server-address”" class="headerlink" title="1.19 Could not find an option named “devtools-server-address”."></a>1.19 Could not find an option named “devtools-server-address”.</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall java</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-20-Failed-to-list-versions-for-com-google-android-gms-play-services-location"><a href="#1-20-Failed-to-list-versions-for-com-google-android-gms-play-services-location" class="headerlink" title="1.20  Failed to list versions for com.google.android.gms:play-services-location"></a>1.20  Failed to list versions for com.google.android.gms:play-services-location</h2><blockquote>
+<p>注释 location 插件</p>
+</blockquote>
+<h2 id="1-21-Floor使用"><a href="#1-21-Floor使用" class="headerlink" title="1.21 Floor使用"></a>1.21 Floor<a target="_blank" rel="noopener" href="https://floor.codes/getting-started/">使用</a></h2><p><a target="_blank" rel="noopener" href="https://floor.codes/getting-started/">https://floor.codes/getting-started/</a></p>
+<p>通过在我们的项目根目录下运行:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">首次生成</span></span><br><span class="line">flutter packages pub run build_runner build</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">如果需要在文件变动时，自动运行命令使用</span></span><br><span class="line">flutter packages pub run build_runner watch</span><br></pre></td></tr></table></figure>
+
+<p>更新数据冲突策略</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Update</span>(onConflict: OnConflictStrategy.replace)</span><br><span class="line"><span class="meta">@Insert</span>(onConflict: OnConflictStrategy.rollback)</span><br></pre></td></tr></table></figure>
+
+<p>写Entity</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:floor/floor.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@entity</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span> </span>&#123;</span><br><span class="line">  <span class="meta">@PrimaryKey</span>(autoGenerate: <span class="keyword">true</span>)</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">int?</span> id;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> message;</span><br><span class="line"></span><br><span class="line">  Task(<span class="keyword">this</span>.id, <span class="keyword">this</span>.message);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">bool</span> <span class="keyword">operator</span> ==(<span class="built_in">Object</span> other) =&gt;</span><br><span class="line">      identical(<span class="keyword">this</span>, other) ||</span><br><span class="line">      other <span class="keyword">is</span> Task &amp;&amp;</span><br><span class="line">          runtimeType == other.runtimeType &amp;&amp;</span><br><span class="line">          id == other.id &amp;&amp;</span><br><span class="line">          message == other.message;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">int</span> <span class="keyword">get</span> hashCode =&gt; id.hashCode ^ message.hashCode;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">String</span> toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Task&#123;id: <span class="subst">$id</span>, message: <span class="subst">$message</span>&#125;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/gaox-dev/Pics@main/2022/04/wechatpayUmdUjA.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/gaox-dev/Pics@main/2022/04/alipayGrvnkv.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/project/tags/flutter/" rel="tag"># flutter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/project/2019/12/25/Git/" rel="next" title="Git常用命令">
+                <i class="fa fa-chevron-left"></i> Git常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/project/2021/04/17/flutter2/" rel="prev" title="Flutter常用功能">
+                Flutter常用功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/project/archives%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flutter%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">1.</span> <span class="nav-text">Flutter配置常见错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Could-not-determine-the-dependencies-of-task-app-compileDebugJavaWithJavac"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Could not determine the dependencies of task :app:compileDebugJavaWithJavac</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Mac-Flutter-doctor-%E2%9C%97-Unable-to-locate-Android-SDK"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Mac, Flutter doctor, ✗ Unable to locate Android SDK.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%97%A0%E6%B3%95Pod%E5%AE%89%E8%A3%85%E6%97%B6"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 无法Pod安装时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Exception%EF%BC%9A%E2%80%9Cfailed-to-set-registerPlugins%E2%80%9D"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 Exception：“failed to set registerPlugins”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-XCode-archive-error-%E2%80%98No-such-module-flutter-downloader%E2%80%99-when-using-AppDelegate-swift"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 XCode archive error ‘No such module flutter_downloader’ when using AppDelegate.swift</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-Encountered-error-while-building-for-device"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 Encountered error while building for device.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-%E2%80%9CWaiting-for-another-flutter-command-to-%E2%80%A6%E2%80%9D"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 “Waiting for another flutter command to …”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-Command-PhaseScriptExecution-failed-with-a-nonzero-exit-code"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 Command PhaseScriptExecution failed with a nonzero exit code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-Flutter-plugin-not-installed-and-Dart-plugin-not-installed-errors-69514"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 Flutter plugin not installed and Dart plugin not installed errors #69514</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-%E6%89%93%E5%8C%85apk%EF%BC%8C%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 打包apk，谷歌服务连接失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-CocoaPods-did-not-set-the-base-configuration"><span class="nav-number">1.11.</span> <span class="nav-text">1.11  CocoaPods did not set the base configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-PluginApplicationException-Failed-to-apply-plugin-id-%E2%80%98com-android-internal-version-check%E2%80%98"><span class="nav-number">1.12.</span> <span class="nav-text">1.12 PluginApplicationException: Failed to apply plugin [id ‘com.android.internal.version-check‘]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-13-Execution-failed-for-task%E2%80%99-app-compileDebugKotlin%E2%80%99"><span class="nav-number">1.13.</span> <span class="nav-text">1.13 Execution failed for task’:app:compileDebugKotlin’.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-14-%E4%BF%AE%E6%94%B9bundle-ID-%E5%90%8E%EF%BC%8C%E9%9C%80%E8%A6%81%E5%90%8C%E6%AD%A5%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.14.</span> <span class="nav-text">1.14 修改bundle ID 后，需要同步修改文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-15-%E5%AE%89%E5%8D%93webview-flutter%E6%94%AF%E6%8C%81%E7%BC%A9%E6%94%BE"><span class="nav-number">1.15.</span> <span class="nav-text">1.15 安卓webview_flutter支持缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-16-NoSuchMethodError-The-getter-%E2%80%98length%E2%80%99-was-called-on-null"><span class="nav-number">1.16.</span> <span class="nav-text">1.16 NoSuchMethodError: The getter ‘length’ was called on null.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-17-No-such-module-%E2%80%98HandyJSON%E2%80%99"><span class="nav-number">1.17.</span> <span class="nav-text">1.17 No such module ‘HandyJSON’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-flutter-localizations-from-sdk-depends-on-intl-0-17-0-and-fstore-depends-on-intl-0-16-1-flutter-localizations-from-sdk-is-forbidden"><span class="nav-number">1.18.</span> <span class="nav-text">1.18 flutter_localizations from sdk depends on intl 0.17.0 and fstore depends on intl ^0.16.1, flutter_localizations from sdk is forbidden</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-Could-not-find-an-option-named-%E2%80%9Cdevtools-server-address%E2%80%9D"><span class="nav-number">1.19.</span> <span class="nav-text">1.19 Could not find an option named “devtools-server-address”.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-Failed-to-list-versions-for-com-google-android-gms-play-services-location"><span class="nav-number">1.20.</span> <span class="nav-text">1.20  Failed to list versions for com.google.android.gms:play-services-location</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-21-Floor%E4%BD%BF%E7%94%A8"><span class="nav-number">1.21.</span> <span class="nav-text">1.21 Floor使用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GaoX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/project/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/project/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/project/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/project/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/project/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/project/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/project/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/project/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/project/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
